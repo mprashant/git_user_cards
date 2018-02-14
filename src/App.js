@@ -7,20 +7,19 @@ import CardList from './CardList';
 import Form from './Form';
 
 
-let data =[{login:"mojombo", avatar_url:"https://avatars0.githubusercontent.com/u/1?v=4"},
-{login:"defunkt", avatar_url:"https://avatars0.githubusercontent.com/u/2?v=4"}];
+let data =[{id:1,login:"mojombo", avatar_url:"https://avatars0.githubusercontent.com/u/1?v=4"},
+{id:2,login:"defunkt", avatar_url:"https://avatars0.githubusercontent.com/u/2?v=4"}];
 
 class App extends Component {
   state = {
-    cards:[{login:"mojombo", avatar_url:"https://avatars0.githubusercontent.com/u/1?v=4"},
-    {login:"defunkt", avatar_url:"https://avatars0.githubusercontent.com/u/2?v=4"}]
+    cards:[]
   };  
 
-  // addNewCard = (cardInfo) =>{
-  //     this.setState(prevState =>({
-  //       cards: prevState.cards.concat(cardInfo)
-  //     }))
-  // };
+  addNewCard = (cardInfo) =>{
+      this.setState(prevState =>({
+        cards: prevState.cards.concat(cardInfo)
+      }))
+  };
 
   // addAddAll = (allcards) =>
   // {
