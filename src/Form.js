@@ -19,6 +19,24 @@ class Form extends React.Component{
         });
     }
 
+    handlClick_Add_All_User = (event)=>
+    {
+        event.preventDefault();
+        axios.get('https://api.github.com/users')
+        .then(response  =>{
+            console.log(response.data.avatar_url);
+                this.props.addNewCardFunc(response.data);
+        })
+        .catch( error => {
+            console.log(error);
+        });
+    }
+
+    handleClearAll = () =>{
+        this.props.clearAllCardsFunc();    
+      };
+    
+
     render()
     {
         return(
@@ -28,6 +46,9 @@ class Form extends React.Component{
             onChange={(event)=> this.setState({ userName: event.target.value})}
             />
             <button onClick={this.handlClick_Add_User}> Add User </button>
+            <button onClick={this.handlClick_Add_All_User}> Add  All User </button>
+            <button onClick={this.handleClearAll} >Clear</button>
+            
         </div>
         );
     }

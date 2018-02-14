@@ -17,21 +17,23 @@ class App extends Component {
 
   addNewCard = (cardInfo) =>{
       this.setState(prevState =>({
-        cards: prevState.cards.concat(cardInfo)
+        cards: prevState.cards.concat(0,cardInfo)
       }))
   };
 
-  // addAddAll = (allcards) =>
-  // {
-  //   console.log(allcards);
-  //   this.setState({cards : allcards});
-  // }
+  clearAllCards = () =>{
+    this.setState(prevState =>({
+      cards :[]
+    }))
+
+  };
+
+ 
   render() {
     return (
       <div className="App">
-        <Form  onSubmit = {this.addNewCard}/>
+        <Form  addNewCardFunc = {this.addNewCard} clearAllCardsFunc={this.clearAllCards}/>
         <CardList cards={this.state.cards} />
-        {/* <Button /> */}
       </div>
     );
   }
